@@ -3,7 +3,7 @@ FROM  debian:jessie
 ENV   TS_VERSION=3.0.13.6 \
       TS_FILENAME=teamspeak3-server_linux_amd64 \
       TS_USER=teamspeak \
-      TS_HOME=/teamspeak
+      TS_HOME=/teamspeak/srv
 
 ARG BUILD_DATE
 ARG VCS_REF
