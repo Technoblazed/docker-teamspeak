@@ -18,11 +18,14 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 
 RUN   apt-get update && apt-get install wget mysql-common bzip2 -y \
       && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN   mkdir  /teamspeak
 RUN   groupadd -r $TS_USER \
       && useradd -r -m \
         -g $TS_USER \
         -d $TS_HOME \
         $TS_USER
+        
+RUN chown -R ${TS_USER}:${TS_USER} /teamspeak
 
 WORKDIR ${TS_HOME}
 
